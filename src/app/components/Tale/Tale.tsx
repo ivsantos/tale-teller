@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 
 import DownImage from '@/images/down.png';
 import Image from 'next/image';
+import Suggestions from '@/components/Suggestions/Suggestions';
 
 interface Tale extends cohereResponse<generateResponse> {}
 
@@ -27,6 +28,11 @@ export default function Tale() {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const onSuggestion = (suggestion: string) => {
+    setInput(suggestion);
+    handleGenerate();
+  };
+
   return (
     <>
       <div className="w-80 grid grid-flow-col gap-4 mx-auto mb-10">
@@ -34,6 +40,7 @@ export default function Tale() {
           className="p-2 border-2 border-gray-300 rounded-md"
           placeholder="Once upon a time..."
           type="text"
+          value={input}
           onChange={handleInputChange}
         />
         <button
@@ -44,7 +51,7 @@ export default function Tale() {
         </button>
       </div>
       {tale && (
-        <section className="place-items-center grid gap-6">
+        <div className="place-content-center grid mb-4">
           <button onClick={handleScroll}>
             <Image
               className="animate-bounce"
@@ -54,6 +61,11 @@ export default function Tale() {
               height={64}
             />
           </button>
+        </div>
+      )}
+      <Suggestions onSuggestion={onSuggestion} />
+      {tale && (
+        <section className="place-items-center grid gap-6">
           <article
             ref={ref}
             className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-500 border-dashed italic"

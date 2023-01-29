@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .suggestion {
+    @apply p-1 font-semibold border-2 border-yellow-500 border-dashed rounded-lg;
+  }
+}
