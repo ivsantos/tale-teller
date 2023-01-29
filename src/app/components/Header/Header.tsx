@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import LogoImage from '@/images/logo-no-background.png';
+import LogoImage from '@/images/logo.png';
 import MoonImage from '@/images/moon.png';
 
 export default function Header() {
