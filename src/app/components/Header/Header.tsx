@@ -6,17 +6,15 @@ import MoonImage from '@/images/moon.png';
 
 export default function Header() {
   return (
-    <header className="grid h-48 mx-4 text-center">
+    <header className="grid h-56 mx-4 text-center">
       <Image
-        className="animate-wiggle left-4 absolute -mt-2"
+        className="animate-wiggle left-0 sm:left-4 absolute w-16 h-16 sm:w-[150px] sm:h-[150px] -mt-2"
         alt="Moon"
         src={MoonImage}
-        width={150}
-        height={150}
         priority
       />
       <nav>
-        <ul className="flex items-center justify-center h-full mb-5">
+        <ul className="flex items-center justify-center h-full">
           <li>
             <Link href="/" title="Back to homepage">
               <h1>
