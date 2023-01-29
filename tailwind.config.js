@@ -6,6 +6,15 @@ module.exports = {
       backgroundImage: {
         background: "url('/assets/images/background.png')",
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(4deg)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 3s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

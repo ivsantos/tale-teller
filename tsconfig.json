@@ -21,6 +21,7 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@/images/*": ["./public/assets/images/*"],
       "@/components/*": ["./src/app/components/*"],
     }
   },
