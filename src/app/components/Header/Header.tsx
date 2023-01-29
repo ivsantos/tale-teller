@@ -22,7 +22,6 @@ export default function Header() {
                   alt="Tale Teller Logo"
                   src={LogoImage}
                   width={250}
-                  height={250}
                   priority
                 />
               </h1>
