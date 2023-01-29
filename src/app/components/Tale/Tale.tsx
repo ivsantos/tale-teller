@@ -37,7 +37,7 @@ export default function Tale() {
         </button>
       </div>
       {tale && (
-        <article className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-200 border-dashed italic">
+        <article className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-500 border-dashed italic">
           <h2>Title of the tale</h2>
           <p>{tale.body.generations[0].text}</p>
         </article>

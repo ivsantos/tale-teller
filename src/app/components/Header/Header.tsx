@@ -11,9 +11,6 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-        <p className="italic">
-          A web app that tells AI-generated tales based on your input.
-        </p>
       </nav>
     </header>
   );
