@@ -9,6 +9,8 @@ interface SuggestionProps {
   onTaleSuggestion: (tale: Tale) => void;
 }
 
+const SUGGESTIONS_ENDPOINT = '/api/suggestion';
+
 export default function Suggestions({
   onInputSuggestion,
   onTaleSuggestion,
@@ -24,7 +26,7 @@ export default function Suggestions({
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
     const response = await fetch(
-      `/api/suggestion?tale=${event.currentTarget.id}`,
+      `${SUGGESTIONS_ENDPOINT}/${event.currentTarget.id}`,
     );
     const tale: Tale = await response.json();
     if (tale.statusCode === 200) {
