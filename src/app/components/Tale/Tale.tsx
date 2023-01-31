@@ -1,14 +1,13 @@
 'use client';
 
 import { cohereResponse, generateResponse } from 'cohere-ai/dist/models';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import DownImage from '@/images/down.png';
 import Image from 'next/image';
 import Suggestions from '@/components/Suggestions/Suggestions';
 import WandIcon from '@/images/wand.png';
-// @ts-ignore
-import confetti from 'canvas-confetti';
+import useConfetti from '@/hooks/useConfetti/useConfetti';
 
 export interface Tale extends cohereResponse<generateResponse> {
   isSuggestion?: boolean;
@@ -53,18 +52,7 @@ export default function Tale() {
     setTale(tale);
   };
 
-  useEffect(() => {
-    if (tale) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-      setTimeout(() => {
-        handleScroll();
-      }, 500);
-    }
-  }, [tale]);
+  useConfetti({ tale, action: handleScroll });
 
   return (
     <>
