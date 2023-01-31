@@ -58,7 +58,7 @@ export default function Tale() {
     <>
       <form
         onSubmit={handleGenerate}
-        className="lg:max-w-md max-w-sm mx-auto mb-10"
+        className="lg:max-w-md sm:px-0 max-w-sm px-4 mx-auto mb-10"
       >
         <label htmlFor="ai-input">Please, tell me a story!</label>
         <div className="grid-cols-form grid grid-flow-col gap-4">
