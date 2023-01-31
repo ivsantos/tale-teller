@@ -1,5 +1,5 @@
+import { ITale } from 'src/app/page';
 import Image from 'next/image';
-import { Tale } from '../Tale/Tale';
 import Tale1 from '@/images/tale1.png';
 import Tale2 from '@/images/tale2.png';
 import Tale3 from '@/images/tale3.png';
@@ -7,7 +7,7 @@ import Tale3 from '@/images/tale3.png';
 const SUGGESTIONS_ENDPOINT = '/api/suggestion';
 
 interface GeneratedSuggestionsProps {
-  onTaleSuggestion: (tale: Tale) => void;
+  onTaleSuggestion: (tale: ITale) => void;
 }
 
 export default function GeneratedSuggestions({
@@ -19,7 +19,7 @@ export default function GeneratedSuggestions({
     const response = await fetch(
       `${SUGGESTIONS_ENDPOINT}/${event.currentTarget.id}`,
     );
-    const tale: Tale = await response.json();
+    const tale: ITale = await response.json();
     if (tale.statusCode === 200) {
       onTaleSuggestion(tale);
     }

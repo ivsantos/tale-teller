@@ -1,9 +1,9 @@
-import { Tale } from '@/components/Tale/Tale';
+import { ITale } from 'src/app/page';
 import confetti from 'canvas-confetti';
 import { useEffect } from 'react';
 
 interface UseConfettiProps {
-  tale: Tale | undefined;
+  tale?: ITale;
   action: () => unknown;
 }
 
