@@ -12,9 +12,10 @@ export interface ITale extends cohereResponse<generateResponse> {
 }
 
 export default function HomePage() {
-  const [input, setInput] = useState<string>('');
   const [tale, setTale] = useState<ITale>();
+  const [input, setInput] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleGenerate = async (
     event: React.SyntheticEvent<HTMLFormElement>,
@@ -23,9 +24,11 @@ export default function HomePage() {
     if (!input) {
       setError('error');
     }
+    setLoading(true);
     const response = await fetch(`/api/tale?input=${input}`);
     const tale: ITale = await response.json();
     if (tale.statusCode === 200) {
+      setLoading(false);
       setTale(tale);
     }
   };
@@ -42,7 +45,15 @@ export default function HomePage() {
   };
 
   const onTaleSuggestion = (tale: ITale) => {
+    setLoading(false);
     setTale(tale);
+  };
+
+  const onTaleSelection = (selection: string) => {
+    setInput(selection);
+    setLoading(true);
+    setTale(undefined);
+    setError('');
   };
 
   return (
@@ -52,11 +63,13 @@ export default function HomePage() {
         onInputChange={handleInputChange}
         input={input}
         error={error}
+        loading={loading}
       />
       <Tale tale={tale}>
         <Suggestions
           onInputSuggestion={onInputSuggestion}
           onTaleSuggestion={onTaleSuggestion}
+          onTaleSelection={onTaleSelection}
         />
       </Tale>
     </main>

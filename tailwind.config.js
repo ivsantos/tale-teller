@@ -23,13 +23,19 @@ module.exports = {
           '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
           '40%, 60%': { transform: 'translate3d(4px, 0, 0)' },
         },
+        wandwave: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '50%': { transform: 'rotateY(180deg)' },
+          '100%': { transform: 'rotateY(0deg)' },
+        },
       },
       animation: {
         wiggle: 'wiggle 3s ease-in-out infinite',
         shake: 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
+        wandwave: 'wandwave 1s linear infinite',
       },
       gridTemplateColumns: {
-        form: '2fr 1fr',
+        form: '1.5fr 1fr',
       },
     },
   },

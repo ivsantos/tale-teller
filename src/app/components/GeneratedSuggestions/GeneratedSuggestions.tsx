@@ -8,14 +8,17 @@ const SUGGESTIONS_ENDPOINT = '/api/suggestion';
 
 interface GeneratedSuggestionsProps {
   onTaleSuggestion: (tale: ITale) => void;
+  onTaleSelection: (selection: string) => void;
 }
 
 export default function GeneratedSuggestions({
   onTaleSuggestion,
+  onTaleSelection,
 }: GeneratedSuggestionsProps) {
   const handleTaleSuggestion = async (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
+    onTaleSelection(event.currentTarget.textContent || '');
     const response = await fetch(
       `${SUGGESTIONS_ENDPOINT}/${event.currentTarget.id}`,
     );

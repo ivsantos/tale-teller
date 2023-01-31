@@ -1,20 +1,25 @@
 import GeneratedSuggestions from '../GeneratedSuggestions/GeneratedSuggestions';
+import { ITale } from 'src/app/page';
 import InputSuggestions from '../InputSuggestions/InputSuggestions';
-import { Tale } from '../Tale/Tale';
 
 interface SuggestionProps {
   onInputSuggestion: (input: string) => void;
-  onTaleSuggestion: (tale: Tale) => void;
+  onTaleSuggestion: (tale: ITale) => void;
+  onTaleSelection: (selection: string) => void;
 }
 
 export default function Suggestions({
   onInputSuggestion,
   onTaleSuggestion,
+  onTaleSelection,
 }: SuggestionProps) {
   return (
     <div className="m-4">
       <InputSuggestions onInputSuggestion={onInputSuggestion} />
-      <GeneratedSuggestions onTaleSuggestion={onTaleSuggestion} />
+      <GeneratedSuggestions
+        onTaleSuggestion={onTaleSuggestion}
+        onTaleSelection={onTaleSelection}
+      />
     </div>
   );
 }

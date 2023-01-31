@@ -6,6 +6,7 @@ interface FormProps {
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   input: string;
   error: string;
+  loading: boolean;
 }
 
 export default function Form({
@@ -13,6 +14,7 @@ export default function Form({
   input,
   onInputChange,
   error,
+  loading,
 }: FormProps) {
   return (
     <form
@@ -33,12 +35,12 @@ export default function Form({
           onChange={onInputChange}
         />
         <button
-          className="flex items-center justify-center p-4 bg-white rounded-lg"
+          className="flex items-center justify-center gap-2 p-4 bg-white rounded-lg"
           type="submit"
         >
-          <span>Generate!</span>
+          {loading ? <span>Loading...</span> : <span>Generate!</span>}
           <Image
-            className="inline"
+            className={`${loading ? 'animate-wandwave' : ''}`}
             alt="An icon of a magical wand"
             src={WandIcon}
             width={32}
