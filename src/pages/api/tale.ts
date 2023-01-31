@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const { input } = req.query;
   if (!input) {
-    return res.status(400).json({ error: 'Missing input' });
+    return res.status(400).json({ body: '', statusCode: 400 });
   }
   // cohere.init(process.env.API_KEY!, '2022-12-06');
   // const response = await cohere.generate({

@@ -1,0 +1,14 @@
+{
+  "isSuggestion": true,
+  "statusCode": 200,
+  "body": {
+    "id": "1",
+    "generations": [
+      {
+        "id": "1",
+        "text": "\n\nOnce upon a time, there was a princess that had 3 cats and she loved them very much. She would always spend time with them and pet them. She also loved to tell them stories about her kingdom and the adventures she had there. One day, she decided to take her cats on a walk in the forest. She had never done this before, but she thought it would be a nice change of pace for them.\n\nShe packed a picnic lunch and off they went. They had so much fun exploring and playing together that they forgot the time. Suddenly, it started to get dark and they realized they were lost! They began to panic and didn't know what to do.\n\nSuddenly, one of the cats meowed and they realized that he was trying to tell them something. They listened closely and realized that he was saying \"follow me\". They did as he said and he led them out of the forest and back to the princess's kingdom. They were so happy to be reunited with their princess and their cats!"
+      }
+    ],
+    "prompt": "Generate a tale that starts with: \"Once upon a time, there was a princess that had 3 cats and\" with the maximum possible paragraphs and a definite ending."
+  }
+}

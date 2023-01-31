@@ -1,0 +1,14 @@
+{
+  "isSuggestion": true,
+  "statusCode": 200,
+  "body": {
+    "id": "2",
+    "generations": [
+      {
+        "id": "2",
+        "text": "\n\nTime ago, on a land far far away, a boy called Midudev was born. He was a very happy boy, who loved to play and laugh all the time. He was always up to some kind of mischief, but he was so charming that he could get away with anything.\n\nOne day, Midudev decided to run away from home. He packed his bags and set off on an adventure. He had no idea where he was going, but he was excited to find out.\n\nHe wandered aimlessly for days, enjoying the sights and sounds of nature. He slept under the stars and ate whatever he could find. He was having the time of his life.\n\nOne day, he came across a small town. He was so tired from his journey that he decided to stay there for a while. He soon made friends with the townspeople and became a part of their community.\n\nHe was so happy with his new life that he forgot all about his old one. He never did go back home, but he didn't need to. He had found his true home in the town he had stumbled upon."
+      }
+    ],
+    "prompt": "Generate a happy tale that starts with: \"Time ago, on a land far far away, a boy called Midudev\" with a definite ending."
+  }
+}

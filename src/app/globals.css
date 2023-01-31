@@ -4,6 +4,14 @@
 
 @layer components {
   .suggestion {
-    @apply p-1 font-semibold border-2 border-yellow-500 border-dashed rounded-lg;
+    @apply h-[70px] p-1 font-semibold text-white bg-cover border-2 border-yellow-500 border-dashed rounded-lg scale-hover;
+  }
+
+  .scale-hover {
+    @apply hover:scale-105 transition duration-200 transform;
+  }
+
+  .error {
+    @apply animate-shake border-red-500;
   }
 }

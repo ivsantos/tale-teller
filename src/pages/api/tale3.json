@@ -1,0 +1,14 @@
+{
+  "isSuggestion": true,
+  "statusCode": 200,
+  "body": {
+    "id": "3",
+    "generations": [
+      {
+        "id": "3",
+        "text": "\n\nIn days gone by, a pirate and his parrot were sailing the seven seas in search of buried treasure. They came upon a deserted island, and the pirate decided to go ashore to see if he could find any riches.\nThe parrot stayed on the ship, and when the pirate didn't return, he grew worried and flew off to look for him.\nHe spotted the pirate on the beach, digging up a chest of gold coins. The parrot flew down to join him, and together they divided up the treasure and went back to their ship.\nThe two pirates lived happily ever after, spending their days sailing the ocean and searching for more buried treasure. And their parrot always accompanied them, perched on the pirate's shoulder and helping to guide the way."
+      }
+    ],
+    "prompt": "Generate a happy tale that starts with: \"In days gone by, a pirate and his parrot\" with a definite ending."
+  }
+}

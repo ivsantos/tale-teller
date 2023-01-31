@@ -1,55 +1,99 @@
 'use client';
 
 import { cohereResponse, generateResponse } from 'cohere-ai/dist/models';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import DownImage from '@/images/down.png';
 import Image from 'next/image';
 import Suggestions from '@/components/Suggestions/Suggestions';
+import WandIcon from '@/images/wand.png';
+// @ts-ignore
+import confetti from 'canvas-confetti';
 
-interface Tale extends cohereResponse<generateResponse> {}
+export interface Tale extends cohereResponse<generateResponse> {
+  isSuggestion?: boolean;
+}
 
 export default function Tale() {
-  const [input, setInput] = useState<string>('Once upon a time');
+  const [input, setInput] = useState<string>('');
   const [tale, setTale] = useState<Tale>();
+  const [error, setError] = useState<string>('');
   const ref = useRef<HTMLElement>(null);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(event.target.value);
-  };
-
-  const handleGenerate = async () => {
+  const handleGenerate = async (
+    event: React.SyntheticEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+    if (!input) {
+      setError('error');
+    }
     const response = await fetch(`/api/tale?input=${input}`);
     const tale: Tale = await response.json();
-    setTale(tale);
+    if (tale.statusCode === 200) {
+      setTale(tale);
+    }
   };
 
   const handleScroll = () => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const onSuggestion = (suggestion: string) => {
-    setInput(suggestion);
-    handleGenerate();
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError('');
+    setInput(event.target.value);
   };
+
+  const onInputSuggestion = (input: string) => {
+    setTale(undefined);
+    setError('');
+    setInput(input);
+  };
+
+  const onTaleSuggestion = (tale: Tale) => {
+    setTale(tale);
+  };
+
+  useEffect(() => {
+    if (tale) {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+      setTimeout(() => {
+        handleScroll();
+      }, 500);
+    }
+  }, [tale]);
 
   return (
     <>
-      <div className="w-80 grid grid-flow-col gap-4 mx-auto mb-10">
+      <form
+        onSubmit={handleGenerate}
+        className="w-80 grid grid-flow-col gap-4 mx-auto mb-10"
+      >
         <input
-          className="p-2 border-2 border-gray-300 rounded-md"
+          className={`w-full p-2 border-2 rounded-md ${
+            error ? 'error' : 'border-gray-300'
+          }`}
           placeholder="Once upon a time..."
           type="text"
           value={input}
           onChange={handleInputChange}
         />
         <button
-          className="bg-neutral-600 hover:bg-neutral-800 p-4 text-white rounded-lg"
-          onClick={handleGenerate}
+          className="flex items-center justify-center p-4 bg-white rounded-lg"
+          type="submit"
         >
-          Generate!
+          <span>Generate!</span>
+          <Image
+            className="inline"
+            alt="An icon of a magical wand"
+            src={WandIcon}
+            width={32}
+          />
         </button>
-      </div>
+      </form>
       {tale && (
         <div className="place-content-center grid mb-4">
           <button onClick={handleScroll}>
@@ -63,15 +107,14 @@ export default function Tale() {
           </button>
         </div>
       )}
-      <Suggestions onSuggestion={onSuggestion} />
+      <Suggestions
+        onInputSuggestion={onInputSuggestion}
+        onTaleSuggestion={onTaleSuggestion}
+      />
       {tale && (
-        <section className="place-items-center grid gap-6">
-          <article
-            ref={ref}
-            className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-500 border-dashed italic"
-          >
-            <h2>Title of the tale</h2>
-            <p>{tale.body.generations[0].text}</p>
+        <section ref={ref} className="place-items-center grid gap-6 mt-16">
+          <article className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-500 border-dashed italic">
+            <p>{tale.body?.generations?.[0]?.text}</p>
           </article>
         </section>
       )}
