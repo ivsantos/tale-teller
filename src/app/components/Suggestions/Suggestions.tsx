@@ -37,7 +37,7 @@ export default function Suggestions({
       <div className="mb-4">
         <p className="mb-4">You can try one of the following...</p>
         <ul className="place-items-center grid gap-5">
-          <li>
+          <li className="flex w-full">
             <button
               onClick={handleInputSuggestion}
               className="suggestion bg-stars"
@@ -46,7 +46,7 @@ export default function Suggestions({
               queen, who...
             </button>
           </li>
-          <li>
+          <li className="flex w-full">
             <button
               onClick={handleInputSuggestion}
               className="suggestion bg-tavern"
@@ -54,7 +54,7 @@ export default function Suggestions({
               Long ago, in a tavern full of orcs and burglars...
             </button>
           </li>
-          <li>
+          <li className="flex w-full">
             <button
               onClick={handleInputSuggestion}
               className="suggestion bg-cat"

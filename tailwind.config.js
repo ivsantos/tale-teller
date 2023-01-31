@@ -28,6 +28,9 @@ module.exports = {
         wiggle: 'wiggle 3s ease-in-out infinite',
         shake: 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
       },
+      gridTemplateColumns: {
+        form: '2fr 1fr',
+      },
     },
   },
   plugins: [],

@@ -8,9 +8,9 @@ import MoonImage from '@/images/moon.png';
 
 export default function Header() {
   return (
-    <header className="grid h-56 mx-4 text-center">
+    <header className="grid h-40 mx-4 text-center">
       <Image
-        className="animate-wiggle left-0 sm:left-4 absolute w-16 h-16 sm:w-[150px] sm:h-[150px] -mt-2"
+        className="animate-wiggle left-0 md:left-4 absolute w-16 h-16 md:w-[150px] md:h-[150px] -mt-2 sm:w-[80px] sm:h-[80px]"
         alt="Moon"
         src={MoonImage}
         priority
