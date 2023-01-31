@@ -21,10 +21,11 @@ export default function HomePage() {
     event: React.SyntheticEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
+    setLoading(true);
     if (!input) {
+      setLoading(false);
       setError('error');
     }
-    setLoading(true);
     const response = await fetch(`/api/tale?input=${input}`);
     const tale: ITale = await response.json();
     if (tale.statusCode === 200) {

@@ -19,5 +19,9 @@ export default function useConfetti({ tale, action }: UseConfettiProps) {
         action();
       }, 500);
     }
+
+    return () => {
+      confetti.reset();
+    };
   }, [tale, action]);
 }

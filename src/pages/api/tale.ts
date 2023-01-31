@@ -15,7 +15,7 @@ export default async function handler(
   // cohere.init(process.env.API_KEY!, '2022-12-06');
   // const response = await cohere.generate({
   //   model: 'command-xlarge-20221108',
-  //   prompt: `Generate a tale that starts with: "${input}" with the maximum possible paragraphs and a definite ending.`,
+  //   prompt: `Generate a happy tale that starts with: "${input}" with a definite ending.`,
   //   max_tokens: 1000,
   //   temperature: 1,
   //   end_sequences: ['---'],
