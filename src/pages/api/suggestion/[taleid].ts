@@ -25,9 +25,6 @@ export default async function handler(
   }
 
   const taleNumber = (taleid as string).split('-')[1];
-  // Mocking a slow response
-  // setTimeout(() => {
-  //   return res.status(200).json(Tales[taleNumber]);
-  // }, 5000);
+
   return res.status(200).json(Tales[taleNumber]);
 }
