@@ -18,7 +18,7 @@ export default function Cover({ input }: CoverProps) {
     return <CoverSpinner />;
   }
 
-  return (
+  return prediction?.output ? (
     <Image
       alt="Cover of the tale"
       src={prediction?.output?.at(-1) || ''}
@@ -26,5 +26,5 @@ export default function Cover({ input }: CoverProps) {
       height={256}
       className="shadow-gray-600 mx-auto my-0 mt-8 rounded-md shadow-lg"
     />
-  );
+  ) : null;
 }
