@@ -4,7 +4,7 @@
 
 @layer components {
   .suggestion {
-    @apply h-[70px] p-1 font-semibold text-white bg-cover border-2 border-yellow-500 border-dashed rounded-lg scale-hover flex-grow;
+    @apply h-[60px] p-1 font-semibold text-white bg-cover border-2 border-yellow-500 border-dashed rounded-lg scale-hover flex-grow;
   }
 
   .scale-hover {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { ITale } from 'src/app/page';
 
-interface useTextToSpeechProps {
+interface UseTextToSpeechProps {
   text?: string;
   tale?: ITale;
 }
@@ -10,7 +10,7 @@ interface useTextToSpeechProps {
 /**
  * Hook that handles the text to speech functionality using the Web Speech API.
  */
-export default function useTextToSpeech({ text, tale }: useTextToSpeechProps) {
+export default function useTextToSpeech({ text, tale }: UseTextToSpeechProps) {
   const taleChanged = useRef<boolean>(true);
   const [isListening, setIsListening] = useState<boolean>(false);
   const [tts, setTTS] = useState<SpeechSynthesisUtterance>(

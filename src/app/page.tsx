@@ -66,7 +66,7 @@ export default function HomePage() {
         error={error}
         loading={loading}
       />
-      <Tale tale={tale}>
+      <Tale tale={tale} input={input}>
         <Suggestions
           onInputSuggestion={onInputSuggestion}
           onTaleSuggestion={onTaleSuggestion}

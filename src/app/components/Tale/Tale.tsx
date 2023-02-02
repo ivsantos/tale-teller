@@ -2,6 +2,7 @@
 
 import { useCallback, useRef } from 'react';
 
+import Cover from '../Cover/Cover';
 import DownImage from '@/images/down.png';
 import { ITale } from 'src/app/page';
 import Image from 'next/image';
@@ -12,9 +13,10 @@ import useTextToSpeech from '@/hooks/useTextToSpeech/useTextToSpeech';
 interface TaleProps {
   children: React.ReactNode;
   tale?: ITale;
+  input: string;
 }
 
-export default function Tale({ children, tale }: TaleProps) {
+export default function Tale({ children, tale, input }: TaleProps) {
   const ref = useRef<HTMLElement>(null);
 
   const { text } = tale?.body?.generations?.[0] || {};
@@ -53,6 +55,7 @@ export default function Tale({ children, tale }: TaleProps) {
               {isListening ? 'Pause voice' : 'Listen this tale'}
               <Image alt="Text to speech" src={TTSImage} width={48} />
             </button>
+            <Cover input={input} />
             <p>{text}</p>
           </article>
         </section>
