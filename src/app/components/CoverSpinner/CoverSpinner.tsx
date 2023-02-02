@@ -1,11 +1,11 @@
 export default function CoverSpinner() {
   return (
-    <div className="mt-8 text-center">
+    <div className="grid gap-4 mt-8 text-center">
       <span>Loading tale cover...</span>
       <div role="status">
         <svg
           aria-hidden="true"
-          className="animate-spin dark:text-gray-600 fill-blue-600 inline w-8 h-8 mr-2 text-gray-200"
+          className="animate-spin dark:text-gray-600 fill-black inline w-8 h-8 mr-2 text-white"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

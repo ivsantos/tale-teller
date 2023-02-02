@@ -36,9 +36,9 @@ export default function Form({
         />
         <button
           type="submit"
-          className="gap-2 relative inline-flex items-center justify-center p-0.5 font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
+          className="gap-2 relative inline-flex items-center justify-center p-0.5 font-medium text-white rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 active:scale-105"
         >
-          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full flex justify-between">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md bg-opacity-0 w-full flex justify-between">
             {loading ? <span>Loading...</span> : <span>Generate!</span>}
             <Image
               className={`${loading ? 'animate-wandwave' : ''}`}
