@@ -11,17 +11,17 @@ export default function Cover({ input }: CoverProps) {
   const { prediction, loading, error } = useCoverPrediction({ input });
 
   if (error) {
-    <CoverError error={error} />;
+    return <CoverError error={error} />;
   }
 
   if (loading) {
     return <CoverSpinner />;
   }
 
-  return prediction?.output ? (
+  return prediction ? (
     <Image
       alt="Cover of the tale"
-      src={prediction?.output?.at(-1) || ''}
+      src={prediction}
       width={256}
       height={256}
       className="shadow-gray-600 mx-auto my-0 mt-8 rounded-md shadow-lg"
