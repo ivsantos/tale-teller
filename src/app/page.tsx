@@ -27,10 +27,12 @@ export default function HomePage() {
       setError(true);
       return;
     }
+    setLoading(true);
+    setTale(undefined);
     const response = await generate(input);
-    if (response) {
+    if (response?.statusCode === 200) {
       setLoading(false);
-      setTale(tale);
+      setTale(response);
     }
   };
 
