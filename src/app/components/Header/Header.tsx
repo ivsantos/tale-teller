@@ -1,5 +1,3 @@
-'use client';
-
 import ExternalIcon from '@/images/external-link.png';
 import Image from 'next/image';
 import Link from 'next/link';
