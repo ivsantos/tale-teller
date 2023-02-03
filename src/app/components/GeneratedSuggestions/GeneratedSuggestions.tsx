@@ -31,15 +31,15 @@ export default function GeneratedSuggestions({
   return (
     <div>
       <p className="mb-4">...Or try already pre-generated ones!</p>
-      <ul className="place-items-center sm:gap-4 grid h-auto grid-cols-3 gap-2">
+      <ul className="place-items-center sm:gap-4 grid-cols-suggestions grid h-auto gap-2">
         <li>
           <button
             id="tale-1"
             onClick={handleTaleSuggestion}
             className="scale-hover relative"
           >
-            <span className="top-1/2 -translate-y-2/4 -translate-x-2/4 absolute w-full font-semibold text-white">
-              The princess and her 3 cats
+            <span className="generated-suggestion">
+              The princess and her cats
             </span>
             <Image
               alt="A princess with her three cats"
@@ -55,9 +55,7 @@ export default function GeneratedSuggestions({
             onClick={handleTaleSuggestion}
             className="scale-hover relative"
           >
-            <span className="top-1/2 -translate-y-2/4 -translate-x-2/4 absolute w-full font-semibold text-white">
-              A boy called Midudev
-            </span>
+            <span className="generated-suggestion">A boy called Midudev</span>
             <Image
               alt="A boy running in the wild"
               src={Tale2}
@@ -72,7 +70,7 @@ export default function GeneratedSuggestions({
             onClick={handleTaleSuggestion}
             className="scale-hover"
           >
-            <span className="top-1/2 -translate-y-2/4 -translate-x-2/4 absolute w-full font-semibold text-white">
+            <span className="generated-suggestion">
               The pirate and his parrot
             </span>
             <Image

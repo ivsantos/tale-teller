@@ -56,7 +56,7 @@ export default function Tale({ children, tale, input }: TaleProps) {
               <Image alt="Text to speech" src={TTSImage} width={48} />
             </button>
             <Cover input={input} />
-            <p>{text}</p>
+            <p className="text-xl">{text}</p>
           </article>
         </section>
       )}

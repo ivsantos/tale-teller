@@ -1,7 +1,7 @@
 export default function CoverSpinner() {
   return (
     <div className="grid gap-4 mt-8 text-center">
-      <span>Loading tale cover...</span>
+      <span className="font-light">Loading tale cover...</span>
       <div role="status">
         <svg
           aria-hidden="true"

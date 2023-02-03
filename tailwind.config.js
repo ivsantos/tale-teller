@@ -36,6 +36,10 @@ module.exports = {
       },
       gridTemplateColumns: {
         form: '1.5fr 1fr',
+        suggestions: 'repeat(auto-fill, minmax(200px, 1fr))',
+      },
+      width: {
+        suggestionTitle: 'calc(100% + 0.5rem)',
       },
     },
   },

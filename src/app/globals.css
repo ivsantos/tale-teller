@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-shadow-suggestion {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+}
+
 @layer components {
-  .suggestion {
+  .input-suggestion {
     @apply h-[60px] p-1 font-semibold text-white bg-cover border-2 border-yellow-500 border-dashed rounded-lg scale-hover flex-grow;
+  }
+
+  .generated-suggestion {
+    @apply top-6 -translate-y-2/4 -translate-x-2/4 w-suggestionTitle absolute font-medium text-white bg-black rounded-lg;
   }
 
   .scale-hover {

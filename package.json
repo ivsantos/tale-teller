@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "13.1.6",
     "canvas-confetti": "1.6.0",
     "cohere-ai": "5.0.2",
     "next": "13.1.5",
