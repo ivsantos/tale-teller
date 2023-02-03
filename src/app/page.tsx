@@ -11,6 +11,8 @@ export interface ITale extends cohereResponse<generateResponse> {
   isSuggestion?: boolean;
 }
 
+const TALE_ENDPOINT = '/api/tale';
+
 export default function HomePage() {
   const [tale, setTale] = useState<ITale>();
   const [input, setInput] = useState<string>('');
@@ -22,11 +24,13 @@ export default function HomePage() {
   ) => {
     event.preventDefault();
     setLoading(true);
+    setTale(undefined);
     if (!input) {
       setLoading(false);
       setError('error');
+      return;
     }
-    const response = await fetch(`/api/tale?input=${input}`);
+    const response = await fetch(`${TALE_ENDPOINT}?input=${input}`);
     const tale: ITale = await response.json();
     if (tale.statusCode === 200) {
       setLoading(false);
@@ -34,27 +38,32 @@ export default function HomePage() {
     }
   };
 
+  /** Handler for the input */
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTale(undefined);
     setError('');
     setInput(event.target.value);
   };
 
+  /** On clicking an input suggestion */
   const onInputSuggestion = (input: string) => {
     setTale(undefined);
     setError('');
     setInput(input);
   };
 
-  const onTaleSuggestion = (tale: ITale) => {
-    setLoading(false);
-    setTale(tale);
-  };
-
+  /** On clicking a pre-generated tale suggestion */
   const onTaleSelection = (selection: string) => {
     setInput(selection);
     setLoading(true);
     setTale(undefined);
     setError('');
+  };
+
+  /** On pre-generated tale suggestion resolves */
+  const onTaleSuggestion = (tale: ITale) => {
+    setLoading(false);
+    setTale(tale);
   };
 
   return (

@@ -48,7 +48,7 @@ export default function Tale({ children, tale, input }: TaleProps) {
         <section ref={ref} className="place-items-center grid gap-6 mt-16">
           <article className="mx-8 px-2 mt-8 text-center whitespace-pre-line lg:mx-[unset] border-x-2 border-x-gray-500 border-dashed italic">
             <button
-              className="active:scale-95 shadow-gray-400 flex flex-col items-center w-32 gap-2 p-2 mx-auto my-0 border-2 border-gray-500 rounded-md shadow-md"
+              className="active:scale-95 shadow-gray-400 w-36 flex flex-col items-center gap-2 p-2 mx-auto my-0 border-2 border-gray-500 rounded-md shadow-md"
               type="button"
               onClick={handleListenTale}
             >

@@ -38,7 +38,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export default function useCoverPrediction({ input }: UseCoverPredictionProps) {
   const [prediction, setPrediction] = useState<IPrediction | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>('un error');
+  const [error, setError] = useState<string | null>(null);
 
   const handleGetPrediction = useCallback(async () => {
     const prompt = `mdjrny-v4 style a highly detailed matte painting of ${input} by studio ghibli, makoto shinkai, by artgerm, by wlop, by greg rutkowski, volumetric lighting, octane render, 4 k resolution, trending on artstation, masterpiece`;
@@ -78,6 +78,9 @@ export default function useCoverPrediction({ input }: UseCoverPredictionProps) {
       prediction?.status === 'processing'
     ) {
       setLoading(true);
+    }
+    if (prediction?.status === 'succeeded') {
+      setLoading(false);
     }
   }, [prediction]);
 
