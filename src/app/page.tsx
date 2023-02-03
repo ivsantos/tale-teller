@@ -5,13 +5,12 @@ import { cohereResponse, generateResponse } from 'cohere-ai/dist/models';
 import Form from './components/Form/Form';
 import Suggestions from './components/Suggestions/Suggestions';
 import Tale from './components/Tale/Tale';
+import generate from './lib/tale';
 import { useState } from 'react';
 
 export interface ITale extends cohereResponse<generateResponse> {
   isSuggestion?: boolean;
 }
-
-const TALE_ENDPOINT = '/api/tale';
 
 export default function HomePage() {
   const [tale, setTale] = useState<ITale>();
@@ -28,9 +27,8 @@ export default function HomePage() {
       setError(true);
       return;
     }
-    const response = await fetch(`${TALE_ENDPOINT}?input=${input}`);
-    const tale: ITale = await response.json();
-    if (tale.statusCode === 200) {
+    const response = await generate(input);
+    if (response) {
       setLoading(false);
       setTale(tale);
     }
