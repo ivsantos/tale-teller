@@ -13,9 +13,7 @@ interface UseTextToSpeechProps {
 export default function useTextToSpeech({ text, tale }: UseTextToSpeechProps) {
   const taleChanged = useRef<boolean>(true);
   const [isListening, setIsListening] = useState<boolean>(false);
-  const [tts, setTTS] = useState<SpeechSynthesisUtterance>(
-    new SpeechSynthesisUtterance(),
-  );
+  const [tts, setTTS] = useState<SpeechSynthesisUtterance>();
 
   /**
    * Handles the text to speech functionality.
@@ -31,7 +29,7 @@ export default function useTextToSpeech({ text, tale }: UseTextToSpeechProps) {
     }
     if (speechSynthesis.paused) {
       if (taleChanged.current) {
-        speechSynthesis.speak(tts);
+        speechSynthesis.speak(tts!);
         taleChanged.current = false;
       } else {
         speechSynthesis.resume();
@@ -39,7 +37,7 @@ export default function useTextToSpeech({ text, tale }: UseTextToSpeechProps) {
       return setIsListening(true);
     }
 
-    speechSynthesis.speak(tts);
+    speechSynthesis.speak(tts!);
     setIsListening(true);
   };
 
