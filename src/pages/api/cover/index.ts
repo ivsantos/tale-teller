@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-// https://replicate.com/prompthero/openjourney
-const MODEL_VERSION =
-  '9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb';
+// @ts-ignore
+import midjourney from 'midjourney-client';
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,23 +12,12 @@ export default async function handler(
     return res.status(400).json({ body: '', statusCode: 400 });
   }
 
-  const response = await fetch('https://api.replicate.com/v1/predictions', {
-    method: 'POST',
-    headers: {
-      Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      version: MODEL_VERSION,
-      input: { prompt },
-    }),
-  });
-
-  if (response.status !== 201) {
-    let error = await response.json();
-    return res.status(500).json({ detail: error.detail });
+  try {
+    const response = await midjourney(prompt);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ detail: 'Something went wrong fetching a tale cover.' });
   }
-
-  const prediction = await response.json();
-  return res.status(201).json(prediction);
 }
