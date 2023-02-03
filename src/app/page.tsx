@@ -16,18 +16,16 @@ const TALE_ENDPOINT = '/api/tale';
 export default function HomePage() {
   const [tale, setTale] = useState<ITale>();
   const [input, setInput] = useState<string>('');
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleGenerate = async (
     event: React.SyntheticEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
-    setLoading(true);
-    setTale(undefined);
     if (!input) {
       setLoading(false);
-      setError('error');
+      setError(true);
       return;
     }
     const response = await fetch(`${TALE_ENDPOINT}?input=${input}`);
@@ -38,32 +36,32 @@ export default function HomePage() {
     }
   };
 
+  const resetState = (state: string) => {
+    setTale(undefined);
+    setError(false);
+    setInput(state);
+  };
+
   /** Handler for the input */
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTale(undefined);
-    setError('');
-    setInput(event.target.value);
+    resetState(event.target.value);
   };
 
   /** On clicking an input suggestion */
   const onInputSuggestion = (input: string) => {
-    setTale(undefined);
-    setError('');
-    setInput(input);
+    resetState(input);
   };
 
   /** On clicking a pre-generated tale suggestion */
   const onTaleSelection = (selection: string) => {
-    setInput(selection);
+    resetState(selection);
     setLoading(true);
-    setTale(undefined);
-    setError('');
   };
 
   /** On pre-generated tale suggestion resolves */
   const onTaleSuggestion = (tale: ITale) => {
-    setLoading(false);
     setTale(tale);
+    setLoading(false);
   };
 
   return (

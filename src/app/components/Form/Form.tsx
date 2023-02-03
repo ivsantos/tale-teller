@@ -5,7 +5,7 @@ interface FormProps {
   onSubmit: (event: React.SyntheticEvent<HTMLFormElement>) => void;
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   input: string;
-  error: string;
+  error: boolean;
   loading: boolean;
 }
 
