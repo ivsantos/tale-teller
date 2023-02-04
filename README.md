@@ -9,6 +9,7 @@ This project aims to participate in [@midudev](https://www.github.com/midudev) h
 
 
 ![Project preview](https://user-images.githubusercontent.com/18705658/216736891-12445624-f26b-49a5-8f3c-cc7baaaf351d.png)
+![Tale preview](https://user-images.githubusercontent.com/18705658/216737863-be262d74-7b9e-4040-9824-aab735ed81f0.png)
 
 <p align="center">
 <a href="https://tale-teller.vercel.app/" target="blank">View project</a>
