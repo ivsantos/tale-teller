@@ -40,6 +40,7 @@ module.exports = {
       },
       width: {
         suggestionTitle: 'calc(100% + 0.5rem)',
+        coverImage: 'calc(100% - 2rem)',
       },
     },
   },

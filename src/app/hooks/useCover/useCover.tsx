@@ -12,12 +12,13 @@ export default function useCoverPrediction({ input }: UseCoverPredictionProps) {
   const handleGetPrediction = useCallback(async () => {
     setLoading(true);
     const prompt = `mdjrny-v4 style a highly detailed matte painting of ${input} by studio ghibli, makoto shinkai, by artgerm, by wlop, by greg rutkowski, volumetric lighting, octane render, 4 k resolution, trending on artstation, masterpiece`;
+    const coverConfig = { height: 256 };
     const config = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt }),
+      body: JSON.stringify({ prompt, coverConfig }),
     };
     const response = await fetch(`/api/cover`, config);
     if (response.status !== 200) {

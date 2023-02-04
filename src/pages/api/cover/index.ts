@@ -7,17 +7,17 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { prompt } = req.body;
+  const { prompt, coverConfig = {} } = req.body;
   if (!prompt) {
     return res.status(400).json({ body: '', statusCode: 400 });
   }
 
   try {
-    const response = await midjourney(prompt);
+    const response = await midjourney(prompt, coverConfig);
     return res.status(200).json(response);
   } catch (error) {
     return res
       .status(500)
-      .json({ detail: 'Something went wrong fetching a tale cover.' });
+      .json({ detail: 'Something went wrong fetching your tale cover.' });
   }
 }
