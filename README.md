@@ -3,7 +3,9 @@
 Web app that generates a tale based on an input. It has input suggestions as well as already pre-generated tales. With a tale generated, you can listen to it as text-to-speech or read it, and a cover image is generated based on the tale.
 The main goal of this project is to help children to sleep with a tale made by themselves. It is also a way to help children to learn how to write a tale, and to have fun with it.
 
-Another main goal is to fulfill accessibility requirements, so the app is fully accessible by all users.
+Another main goal is to achieve accessibility requirements for this kind of project in order to be used by all users.
+
+It is fully responsive and designed mobile-first.
 
 This project aims to participate in [@midudev](https://www.github.com/midudev) hackathon: [midudev-cohere-2023](https://github.com/topics/midudev-cohere-2023), in collaboration with [co:here AI](https://cohere.ai/).
 
@@ -51,9 +53,9 @@ Enjoy! 🎉
 ## 💻 Built with
 - [Next.js](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
-- [Co:here AI](https://cohere.ai/) for the core logic of generating a tale based on an input
-- [Openjourney](https://huggingface.co/prompthero/openjourney) (The Open-source version of Midjourney AI) for the cover of a tale
-- [Hotpot AI](https://hotpot.ai/) for the covers of the pre-generated tales
+- [co:here AI](https://cohere.ai/) as the core logic of generating a tale based on an input
+- [Openjourney](https://huggingface.co/prompthero/openjourney) (The Open-source version of Midjourney AI) for generating a cover for a tale based on the input
+- [Hotpot AI](https://hotpot.ai/) for the covers of the already pre-generated tales
 - [Speech Synthesis API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) for A11Y purposes (conversion of tale as text-to-speech)
 
 
