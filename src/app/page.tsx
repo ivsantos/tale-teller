@@ -2,10 +2,10 @@
 
 import { cohereResponse, generateResponse } from 'cohere-ai/dist/models';
 
-import Form from './components/Form/Form';
-import Suggestions from './components/Suggestions/Suggestions';
-import Tale from './components/Tale/Tale';
-import generate from './lib/tale';
+import Form from '@/components/Form/Form';
+import Suggestions from '@/components/Suggestions/Suggestions';
+import Tale from '@/components/Tale/Tale';
+import generate from '@/lib/tale';
 import { useState } from 'react';
 
 export interface ITale extends cohereResponse<generateResponse> {

@@ -1,6 +1,6 @@
-import GeneratedSuggestions from '../GeneratedSuggestions/GeneratedSuggestions';
+import GeneratedSuggestions from '@/components/GeneratedSuggestions/GeneratedSuggestions';
 import { ITale } from 'src/app/page';
-import InputSuggestions from '../InputSuggestions/InputSuggestions';
+import InputSuggestions from '@/components/InputSuggestions/InputSuggestions';
 
 interface SuggestionProps {
   onInputSuggestion: (input: string) => void;

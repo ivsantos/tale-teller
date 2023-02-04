@@ -14,7 +14,7 @@ export default function InputSuggestions({
 
   return (
     <div className="mb-6">
-      <p className="mb-4">You can try one of the following...</p>
+      <p className="mb-4 font-medium">You can try one of the following...</p>
       <ul className="place-items-center grid gap-5">
         <li className="flex w-full">
           <button
