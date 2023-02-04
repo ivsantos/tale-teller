@@ -51,7 +51,7 @@ Enjoy! 🎉
 ## 💻 Built with
 - [Next.js](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
-- [Co:here AI]((https://cohere.ai/)) for the core logic of generating a tale based on an input
+- [Co:here AI](https://cohere.ai/) for the core logic of generating a tale based on an input
 - [Openjourney](https://huggingface.co/prompthero/openjourney) (The Open-source version of Midjourney AI) for the cover of a tale
 - [Hotpot AI](https://hotpot.ai/) for the covers of the pre-generated tales
 - [Speech Synthesis API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) for A11Y purposes (conversion of tale as text-to-speech)
