@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { AnalyticsWrapper } from '@/components/AnalyticsWrapper/AnalyticsWrapper';
 import Header from '@/components/Header/Header';
 import { montserrat } from './fonts';
 
@@ -14,6 +15,7 @@ export default function RootLayout({
       <body className="bg-background overflow-y-scroll">
         <Header />
         {children}
+        <AnalyticsWrapper />
       </body>
     </html>
   );

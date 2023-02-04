@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@vercel/analytics": "0.1.8",
     "canvas-confetti": "1.6.0",
     "cohere-ai": "5.0.2",
     "midjourney-client": "1.0.2",
