@@ -1,4 +1,5 @@
 import ExternalIcon from '@/images/external-link.png';
+import GitHub from '@/images/github.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoImage from '@/images/logo.png';
@@ -29,6 +30,15 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <a
+        className="md:right-4 hover:text-gray-600 md:mt-8 absolute right-0 flex items-center gap-2 mt-4 mr-2"
+        href="https://github.com/ivsantos/tale-teller"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span className="md:block font-extralight hidden">View code</span>
+        <Image width={32} height={32} alt="GitHub" src={GitHub} priority />
+      </a>
       <h2 className="italic">
         <a
           title="External link to Cohere AI"
