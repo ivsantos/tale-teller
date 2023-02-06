@@ -12,8 +12,9 @@ It is fully responsive and designed mobile-first.
 This project aims to participate in [@midudev](https://www.github.com/midudev) hackathon: [midudev-cohere-2023](https://github.com/topics/midudev-cohere-2023), in collaboration with [co:here AI](https://cohere.ai/).
 
 
-![Project preview](https://user-images.githubusercontent.com/18705658/216736891-12445624-f26b-49a5-8f3c-cc7baaaf351d.png)
-![Tale preview](https://user-images.githubusercontent.com/18705658/216737863-be262d74-7b9e-4040-9824-aab735ed81f0.png)
+![Project preview](https://user-images.githubusercontent.com/18705658/217069961-59a74ed2-b082-4472-9b72-f278d4037254.png)
+![Shelf list](https://user-images.githubusercontent.com/18705658/217069953-1a1d9ad1-4789-403f-9516-e41c1d017a96.png)
+![Tale preview](https://user-images.githubusercontent.com/18705658/217070721-21c44841-584a-48a8-8061-3f075a3b570b.png)
 
 <p align="center">
 <a href="https://tale-teller.vercel.app/" target="blank">View project</a>
