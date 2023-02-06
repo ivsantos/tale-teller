@@ -1,14 +1,20 @@
 import CoverError from '@/components/CoverError/CoverError';
 import CoverSpinner from '@/components/CoverSpinner/CoverSpinner';
 import Image from 'next/image';
-import useCoverPrediction from '@/hooks/useCover/useCover';
+import useCoverPrediction from '@/hooks/useCoverPrediction/useCoverPrediction';
 
 interface CoverProps {
   input: string;
+  customCover?: string;
+  onCover: (coverURI: string) => void;
 }
 
-export default function Cover({ input }: CoverProps) {
-  const { prediction, loading, error } = useCoverPrediction({ input });
+export default function Cover({ input, customCover, onCover }: CoverProps) {
+  const { prediction, loading, error } = useCoverPrediction({
+    input,
+    customCover,
+    onCover,
+  });
 
   if (error) {
     return <CoverError error={error} />;

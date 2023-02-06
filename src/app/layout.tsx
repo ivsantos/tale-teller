@@ -14,7 +14,7 @@ export default function RootLayout({
       <head />
       <body className="bg-background overflow-y-scroll">
         <Header />
-        {children}
+        <div className="lg:max-w-3xl max-w-xl mx-auto my-0">{children}</div>
         <AnalyticsWrapper />
       </body>
     </html>

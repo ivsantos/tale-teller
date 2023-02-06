@@ -29,7 +29,7 @@ export default function GeneratedSuggestions({
   };
 
   return (
-    <div>
+    <div className="mb-6">
       <p className="mb-4 font-medium">...Or try already pre-generated ones!</p>
       <ul className="place-items-center sm:gap-4 grid-cols-suggestions grid h-auto gap-2">
         <li>
@@ -45,7 +45,6 @@ export default function GeneratedSuggestions({
               alt="A princess with her three cats"
               src={Tale1}
               className="rounded-2xl shadow-gray-600 shadow-lg"
-              priority
             />
           </button>
         </li>
@@ -60,7 +59,6 @@ export default function GeneratedSuggestions({
               alt="A boy running in the wild"
               src={Tale2}
               className="rounded-2xl shadow-gray-600 shadow-lg"
-              priority
             />
           </button>
         </li>
@@ -77,7 +75,6 @@ export default function GeneratedSuggestions({
               alt="A pirate and his parrot"
               src={Tale3}
               className="rounded-2xl shadow-gray-600 shadow-lg"
-              priority
             />
           </button>
         </li>

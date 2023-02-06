@@ -1,65 +1,73 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { forwardRef, useCallback, useState } from 'react';
 
 import Cover from '../Cover/Cover';
-import DownImage from '@/images/down.png';
-import { ITale } from 'src/app/page';
 import Image from 'next/image';
 import TTSImage from '@/images/text-to-speech.png';
-import useConfetti from '@/hooks/useConfetti/useConfetti';
+import Twitter from '@/images/twitter.png';
+import updateShelf from '@/lib/updateShelf';
 import useTextToSpeech from '@/hooks/useTextToSpeech/useTextToSpeech';
 
 interface TaleProps {
-  children: React.ReactNode;
-  tale?: ITale;
+  text?: string;
   input: string;
+  customCover?: string;
+  id?: string;
 }
 
-export default function Tale({ children, tale, input }: TaleProps) {
-  const ref = useRef<HTMLElement>(null);
+const Tale = forwardRef<HTMLElement, TaleProps>((props, ref) => {
+  const { text, input, customCover, id = '' } = props;
+  const [taleId, setTaleId] = useState<string>(id);
 
-  const { text } = tale?.body?.generations?.[0] || {};
+  const { handleListenTale, isListening } = useTextToSpeech({ text });
 
-  const handleScroll = useCallback(() => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [ref]);
+  const handleTwitterIntent = () => {
+    window.open(`
+    https://twitter.com/intent/tweet?text=I%20generated%20this%20wonderful%20tale%E2%9C%A8%20with%20co%3Ahere%20AI%20and%20Openjourney%20for%20its%20cover%20artwork!%F0%9F%93%99%0a%0a%20%E2%AC%87%EF%B8%8F%20Read%20it%20here%20or%20generate%20your%20own!%0a${encodeURIComponent(
+      `https://tale-teller.vercel.app/shelf/${taleId}`,
+    )}
+    `);
+  };
 
-  useConfetti({ tale, action: handleScroll });
-  const { handleListenTale, isListening } = useTextToSpeech({ text, tale });
+  const onCover = useCallback(
+    async (coverURI: string) => {
+      if (coverURI && text) {
+        const newShelfTale = await updateShelf({ coverURI, text, input });
+        setTaleId(newShelfTale?.id);
+      }
+    },
+    [text, input],
+  );
 
   return (
-    <>
-      {tale && (
-        <div className="place-content-center grid mb-4">
-          <button onClick={handleScroll}>
-            <Image
-              className="animate-bounce"
-              alt="Go down"
-              src={DownImage}
-              width={64}
-              height={64}
-            />
+    <section ref={ref} className="place-items-center grid gap-6 my-16">
+      <article className="mx-8 p-2 text-center whitespace-pre-line lg:mx-[unset] border-2 border-gray-500 border-dashed italic">
+        <div className="flex justify-center gap-4">
+          <button
+            className="active:scale-95 shadow-gray-400 w-36 flex flex-col items-center gap-2 p-2 my-0 border-2 border-gray-500 rounded-md shadow-md"
+            type="button"
+            onClick={handleListenTale}
+          >
+            {isListening ? 'Pause voice' : 'Listen this tale'}
+            <Image alt="Text to speech" src={TTSImage} width={48} />
+          </button>
+          <button
+            className="active:scale-95 shadow-gray-400 w-36 flex flex-col items-center gap-2 p-2 my-0 border-2 border-gray-500 rounded-md shadow-md"
+            type="button"
+            onClick={handleTwitterIntent}
+          >
+            Share
+            <Image alt="Twitter" src={Twitter} width={48} />
           </button>
         </div>
-      )}
-      {children}
-      {tale && (
-        <section ref={ref} className="place-items-center grid gap-6 my-16">
-          <article className="mx-8 p-2 text-center whitespace-pre-line lg:mx-[unset] border-2 border-gray-500 border-dashed italic">
-            <button
-              className="active:scale-95 shadow-gray-400 w-36 flex flex-col items-center gap-2 p-2 mx-auto my-0 border-2 border-gray-500 rounded-md shadow-md"
-              type="button"
-              onClick={handleListenTale}
-            >
-              {isListening ? 'Pause voice' : 'Listen this tale'}
-              <Image alt="Text to speech" src={TTSImage} width={48} />
-            </button>
-            <Cover input={input} />
-            <p className="text-xl">{text}</p>
-          </article>
-        </section>
-      )}
-    </>
+        <Cover input={input} onCover={onCover} customCover={customCover} />
+        <p className="text-xl">{text}</p>
+      </article>
+    </section>
   );
-}
+});
+
+Tale.displayName = 'Tale';
+
+export default Tale;

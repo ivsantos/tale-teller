@@ -2,15 +2,13 @@
 
 import { cohereResponse, generateResponse } from 'cohere-ai/dist/models';
 
+import Container from './components/Container/Container';
 import Form from '@/components/Form/Form';
 import Suggestions from '@/components/Suggestions/Suggestions';
-import Tale from '@/components/Tale/Tale';
 import generate from '@/lib/tale';
 import { useState } from 'react';
 
-export interface ITale extends cohereResponse<generateResponse> {
-  isSuggestion?: boolean;
-}
+export interface ITale extends cohereResponse<generateResponse> {}
 
 export default function HomePage() {
   const [tale, setTale] = useState<ITale>();
@@ -65,7 +63,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="lg:max-w-3xl max-w-xl mx-auto my-0">
+    <main>
       <Form
         onSubmit={handleGenerate}
         onInputChange={handleInputChange}
@@ -73,13 +71,13 @@ export default function HomePage() {
         error={error}
         loading={loading}
       />
-      <Tale tale={tale} input={input}>
+      <Container tale={tale} input={input}>
         <Suggestions
           onInputSuggestion={onInputSuggestion}
           onTaleSuggestion={onTaleSuggestion}
           onTaleSelection={onTaleSelection}
         />
-      </Tale>
+      </Container>
     </main>
   );
 }

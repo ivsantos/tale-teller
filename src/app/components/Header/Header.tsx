@@ -12,7 +12,6 @@ export default function Header() {
         className="animate-wiggle left-0 md:left-4 absolute w-16 h-16 md:w-[150px] md:h-[150px] -mt-2 sm:w-[80px] sm:h-[80px]"
         alt="Moon"
         src={MoonImage}
-        priority
       />
       <nav>
         <ul className="flex items-center justify-center h-full">
@@ -37,7 +36,7 @@ export default function Header() {
         target="_blank"
       >
         <span className="md:block font-extralight hidden">View code</span>
-        <Image width={32} height={32} alt="GitHub" src={GitHub} priority />
+        <Image width={32} height={32} alt="GitHub" src={GitHub} />
       </a>
       <h2 className="italic">
         <a
@@ -54,7 +53,6 @@ export default function Header() {
             src={ExternalIcon}
             width={14}
             height={14}
-            priority
           />
         </a>{' '}
         tale generator conceived for a better sleep 💤

@@ -1,6 +1,7 @@
 import GeneratedSuggestions from '@/components/GeneratedSuggestions/GeneratedSuggestions';
 import { ITale } from 'src/app/page';
 import InputSuggestions from '@/components/InputSuggestions/InputSuggestions';
+import Link from 'next/link';
 
 interface SuggestionProps {
   onInputSuggestion: (input: string) => void;
@@ -20,6 +21,12 @@ export default function Suggestions({
         onTaleSuggestion={onTaleSuggestion}
         onTaleSelection={onTaleSelection}
       />
+      <p>
+        You can also view all community generated tales in our{' '}
+        <Link href="/shelf" className="underline">
+          shelf.
+        </Link>
+      </p>
     </div>
   );
 }
