@@ -30,7 +30,7 @@ export default function GeneratedSuggestions({
 
   return (
     <div className="mb-6">
-      <p className="mb-4 font-medium">...Or try already pre-generated ones!</p>
+      <p className="mb-4 font-medium">...or try already pre-generated ones!</p>
       <ul className="place-items-center sm:gap-4 grid-cols-suggestions grid h-auto gap-2">
         <li>
           <button
