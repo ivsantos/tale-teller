@@ -10,6 +10,9 @@ export default function ShelfList() {
 
   return tales.length > 0 ? (
     <section>
+      <Link href="/" className="place-items-center grid mb-4 underline">
+        ⬅ Go back to homepage
+      </Link>
       {tales.map((tale) => {
         return (
           <article
