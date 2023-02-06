@@ -53,6 +53,7 @@ Enjoy! 🎉
 ## 💻 Built with
 - [Next.js](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [co:here AI](https://cohere.ai/) as the core logic of generating a tale based on an input
 - [Openjourney](https://huggingface.co/prompthero/openjourney) (The Open-source version of Midjourney AI) for generating a cover for a tale based on the input
 - [Hotpot AI](https://hotpot.ai/) for the covers of the already pre-generated tales
