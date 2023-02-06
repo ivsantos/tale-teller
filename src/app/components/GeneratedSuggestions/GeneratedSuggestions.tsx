@@ -45,6 +45,7 @@ export default function GeneratedSuggestions({
               alt="A princess with her three cats"
               src={Tale1}
               className="rounded-2xl shadow-gray-600 shadow-lg"
+              priority
             />
           </button>
         </li>
@@ -59,6 +60,7 @@ export default function GeneratedSuggestions({
               alt="A boy running in the wild"
               src={Tale2}
               className="rounded-2xl shadow-gray-600 shadow-lg"
+              priority
             />
           </button>
         </li>
@@ -75,6 +77,7 @@ export default function GeneratedSuggestions({
               alt="A pirate and his parrot"
               src={Tale3}
               className="rounded-2xl shadow-gray-600 shadow-lg"
+              priority
             />
           </button>
         </li>

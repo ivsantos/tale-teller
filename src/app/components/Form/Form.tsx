@@ -47,6 +47,7 @@ export default function Form({
               alt="An icon of a magical wand"
               src={WandIcon}
               width={32}
+              priority
             />
           </span>
         </button>
