@@ -22,7 +22,18 @@ export default function Suggestions({
         onTaleSelection={onTaleSelection}
       />
       <p>
-        You can also view all community generated tales in our{' '}
+        You can also view all ✨{' '}
+        <code className="text-blue-700">
+          <Link
+            href="https://discord.gg/midudev"
+            aria-label="Midudev discord server"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            community
+          </Link>
+        </code>{' '}
+        ✨ generated tales in our{' '}
         <Link href="/shelf" className="underline">
           shelf.
         </Link>
