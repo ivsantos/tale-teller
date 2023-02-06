@@ -21,7 +21,8 @@ export default function useTextToSpeech({ text }: UseTextToSpeechProps) {
   const handleListenTale = () => {
     if (isListening) {
       speechSynthesis.pause();
-      return setIsListening(false);
+      setIsListening(false);
+      return;
     }
     if (speechSynthesis.paused) {
       if (taleChanged.current) {
@@ -30,15 +31,18 @@ export default function useTextToSpeech({ text }: UseTextToSpeechProps) {
       } else {
         speechSynthesis.resume();
       }
-      return setIsListening(true);
+      setIsListening(true);
+      return;
     }
 
     speechSynthesis.speak(tts!);
+    taleChanged.current = false;
     setIsListening(true);
   };
 
   useEffect(() => {
     if (text) {
+      speechSynthesis.cancel();
       const tts = new SpeechSynthesisUtterance(text);
       tts.lang = 'en-US';
       taleChanged.current = true;
