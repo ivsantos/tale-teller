@@ -12,22 +12,21 @@ export default function Shelf({ id }: ShelfProps) {
   const { tale } = useGetTale({ id });
 
   return tale ? (
-    <>
-      <h2 className="place-items-center grid -mb-10 font-bold underline">
-        {tale.title}
-      </h2>
+    <div className="place-items-center grid mb-8">
+      <Link href="/shelf" className="mb-4 underline">
+        ⬅ Go back to the shelf
+      </Link>
+      <h2 className="-mb-10 font-bold underline">{tale.title}</h2>
       <Tale
         text={tale.text}
         input={tale.title || ''}
         customCover={tale.cover}
         id={id}
       />
-      <Link href="/shelf" className="place-items-center grid mb-4 underline">
-        ⬅ Go back to the shelf
-      </Link>
-      <Link href="/" className="place-items-center grid mb-8 underline">
+
+      <Link href="/" className="-mt-10 underline">
         📙 Generate your custom tale now!
       </Link>
-    </>
+    </div>
   ) : null;
 }
