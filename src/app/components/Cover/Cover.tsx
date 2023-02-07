@@ -30,7 +30,7 @@ export default function Cover({ input, customCover, onCover }: CoverProps) {
       src={prediction}
       width={512}
       height={256}
-      className="shadow-gray-600 w-coverImage object-cover h-64 mx-auto my-0 mt-8 rounded-md shadow-lg"
+      className="shadow-gray-600 object-cover h-64 mx-auto my-0 mt-8 rounded-md shadow-lg w-[512px]"
     />
   ) : null;
 }
