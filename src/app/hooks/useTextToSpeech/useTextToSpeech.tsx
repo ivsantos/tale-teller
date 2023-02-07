@@ -44,7 +44,7 @@ export default function useTextToSpeech({ text }: UseTextToSpeechProps) {
     if (text) {
       speechSynthesis.cancel();
       const tts = new SpeechSynthesisUtterance(text);
-      tts.lang = 'en-US';
+      tts.lang = 'en';
       taleChanged.current = true;
       setTTS(tts);
     }
